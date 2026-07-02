@@ -1,0 +1,18 @@
+# Ignore macOS system files
+.DS_Store
+**/.DS_Store
+
+# Ignore Python bytecode directories
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Ignore virtual environment
+venv/
+
+# Ignore training outputs
+experiment/
+
+# Ignore Python virtual environments with different names
+.venv/
+env/
