@@ -10,8 +10,7 @@ __pycache__/
 # Ignore virtual environment
 venv/
 
-# Ignore training outputs
-experiment/
+
 
 # Ignore Python virtual environments with different names
 .venv/
