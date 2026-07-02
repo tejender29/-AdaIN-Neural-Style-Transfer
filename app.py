@@ -43,7 +43,15 @@ else:
 
 encoder = VGGEncoder('vgg_normalised.pth').to(device)
 decoder = Decoder().to(device)
-decoder.load_state_dict(torch.load('/Users/tejendersingh/Desktop/NST_CODE/experiment/final_experiment/decoder_5.pth'))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(
+    BASE_DIR,
+    "experiment",
+    "final_experiment",
+    "decoder_5.pth"
+)
+decoder.load_state_dict(torch.load(MODEL_PATH, map_location=device))
 
 encoder.eval()
 decoder.eval()
@@ -151,9 +159,8 @@ def send_example(filename):
 
 
 if __name__ == '__main__':
-    from werkzeug.serving import run_simple
-    run_simple('localhost', 5000, app, use_reloader=True, use_debugger=True)
-
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
 
 
 
